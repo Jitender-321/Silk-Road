@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏪 Silk Road - Premium Local Marketplace</title>
+    <meta name="description" content="Buy and sell safely in your local area with Silk Road - the premium marketplace for secure in-person transactions">
+    <meta name="keywords" content="local marketplace, buy sell, safe transactions, meetup commerce">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Silk Road</h1>
+            <p class="tagline">Your Marketplace</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Enhanced Safety Notice -->
+        <div class="notice">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <span style="font-size: 1.5rem;">🛡️</span>
+                <span style="font-weight: 800;">Warning:</span>
+                <span>Only pay at the location when you meet the seller.</span>
+                <span style="font-weight: 600;">Never send money online!</span>
+                <span style="font-size: 1.2rem;">🤝</span>
+            </div>
+        </div>
+
+        <!-- Add Item Section -->
+        <section class="add-item-section">
+            <h2>List Your Item</h2>
+            <form id="add-item-form" class="item-form">
+                <div class="form-group">
+                    <label for="seller-name">Your Name:</label>
+                    <input type="text" id="seller-name" name="seller" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-title">Item Title:</label>
+                    <input type="text" id="item-title" name="title" placeholder="What are you selling?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-description">Description:</label>
+                    <textarea id="item-description" name="description" placeholder="Describe your item..." rows="4" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="item-price">Price (£):</label>
+                        <input type="number" id="item-price" name="price" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-location">Location:</label>
+                        <input type="text" id="item-location" name="location" placeholder="City, State" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="meeting-time">Available to meet:</label>
+                    <input type="text" id="meeting-time" name="meetingTime" placeholder="e.g. Weekends, Evenings, Flexible" required>
+                    <small>When are you available to meet buyers?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-image">Image:</label>
+                    <input type="file" id="item-image" name="image" accept="image/*">
+                    <small>Optional - Upload a photo of your item</small>
+                </div>
+
+                <button type="submit" class="btn"><span>🚀 Add Item to Marketplace</span></button>
+            </form>
+        </section>
+
+        <!-- Marketplace Items -->
+        <section class="marketplace-section">
+            <h2>Marketplace Items</h2>
+            
+            <!-- Search Bar -->
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search items, locations, or sellers..." class="search-input">
+                    <button type="button" id="clear-search" class="clear-search" style="display: none;">✕</button>
+                </div>
+                <div class="search-filters">
+                    <select id="sort-select" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="title">Title A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="search-results" class="search-results" style="display: none;"></div>
+            <div id="loading" class="loading" style="display: none;">Loading items...</div>
+            <div id="error-message" class="error-message" style="display: none;"></div>
+            <div id="items-container" class="items-grid">
+                <!-- Items will be dynamically loaded here -->
+            </div>
+            <div id="no-items" class="no-items" style="display: none;">
+                <p>No items listed yet. Be the first to add something!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Silk Road Marketplace.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
